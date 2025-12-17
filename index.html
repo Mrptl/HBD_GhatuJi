@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HBD, Ghatu Ji 💖</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Nunito:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body data-theme="light">
+
+    <div class="background-animation">
+        <div class="floating-heart">💖</div>
+        <div class="floating-heart">✨</div>
+        <div class="floating-heart">🌸</div>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="assets/musics/Happy Birthday Goongoon.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="music-control">
+        <button id="music-toggle" onclick="toggleMusic()" aria-label="Toggle music">
+            <i class="fas fa-music"></i>
+        </button>
+    </div>
+
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <nav class="navbar">
+        <ul>
+            <li onclick="showPage('home')" class="active-nav">Home</li>
+            <li onclick="showPage('shayari')">Shayaris</li>
+            <li onclick="showPage('photos')">Photos</li>
+            <li onclick="showPage('music')">Tunes</li>
+            <li onclick="showPage('note')">Note</li>
+        </ul>
+    </nav>
+
+    <main class="container">
+
+        <section id="home" class="page active">
+            <div class="card hero-card">
+                <span class="badge">18 Dec 2025</span>
+                <h1>Happy 21st Birthday,<br>Goongoon 🎂</h1>
+                <p class="subtitle">To Dear Ghatu Ji — Many many happy returns of the day 🥳✨💖</p>
+
+                <div class="heartfelt-msg">
+                    <p>
+                        thank you for making my days brighter, just by being you.
+                        We haven't met yet, but you've already touched my life in ways I can't explain.
+                        Every notification from you is a reason to smile. This is just a small way to say
+                        thank you for existing.
+                    </p>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn-primary" onclick="showPage('shayari')">Read My Shayaris ✨</button>
+                    <button class="btn-secondary" onclick="showPage('music')">Music For You 🎶</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="shayari" class="page hidden">
+            <div class="header-text">
+                <h2>Shayaris for Ghatu Ji💕</h2>
+                <p>Every word here is written only for you.</p>
+            </div>
+
+            <div class="card shayari-card">
+                <div id="shayari-display" class="shayari-text">
+                    "Loading a beautiful thought for you..."
+                </div>
+            </div>
+
+            <button class="btn-primary refresh-btn" onclick="nextShayari()">
+                <i class="fas fa-magic"></i> New Shayari
+            </button>
+        </section>
+
+        <section id="photos" class="page hidden">
+            <div class="header-text">
+                <h2>Memories With You 📸</h2>
+                <p>Beautiful moments captured in time.</p>
+            </div>
+
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="assets/img1.png" alt="Memory 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/img2.png" alt="Memory 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/img3.png" alt="Memory 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/img4.png" alt="Memory 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/img11.png" alt="Memory 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/img6.png" alt="Memory 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/img7.png" alt="Memory 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/img8.png" alt="Memory 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/img10.png" alt="Memory 1">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="music" class="page hidden">
+            <div class="header-text">
+                <h2>Songs That Feel Like You 🎶</h2>
+                <p>Melodies that remind me of our conversations.</p>
+            </div>
+
+            <div class="music-player-container">
+                <div class="player-main">
+                    <div class="disk-area">
+                        <div class="disk">
+                            <i class="fas fa-music"></i>
+                        </div>
+                    </div>
+                    <div class="song-details">
+                        <h3 id="player-title">Song Title</h3>
+                        <p id="player-artist" class="artist">Artist Name</p>
+                        <p id="player-caption" class="caption">"Caption..."</p>
+                    </div>
+
+                    <audio id="main-audio" controls class="custom-audio">
+                        <source src="" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+
+                    <div class="player-controls">
+                        <button class="control-btn" onclick="prevSong()"><i class="fas fa-step-backward"></i></button>
+                        <!-- Note: The main play/pause is handled by the native <audio> controls for simplicity and reliability, 
+                             but we could add a custom button here if we hid the native controls. 
+                             For now, keeping native controls visible as per request for "media player format" often implies seeing the progress bar etc. -->
+                        <button class="control-btn" onclick="nextSong()"><i class="fas fa-step-forward"></i></button>
+                    </div>
+                </div>
+
+                <div class="player-playlist">
+                    <h4>Up Next 🎵</h4>
+                    <ul id="playlist-items">
+                        <!-- Playlist items will be injected by JS -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="note" class="page hidden">
+            <div class="card final-card">
+                <h2>Thank You, Ghatu 💌</h2>
+                <div class="letter-body">
+                    <p>
+                        Dear Goongoon,<br><br>
+                        I wanted to end this little digital card by simply saying: <b>Thank you.</b>
+                        <br><br>
+                        Thank you for every late-night text, every shared laugh, and every moment where you made me feel
+                        understood.
+                        I hope this year brings you as much joy as you bring to everyone around you.
+                        <br><br>
+                        No pressure, no expectations—just pure gratitude for who you are.
+                    </p>
+                </div>
+                <div class="signature">
+                    — From someone who smiles because of you.
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
